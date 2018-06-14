@@ -1,0 +1,56 @@
+$grad-male-rural: #bee1ff;
+$grad-male-urban: #95c6ff;
+$grad-female-rural: #bcbfff;
+$grad-female-urban: #a7a4ff;
+
+@mixin vertical-grad($color) {
+  background: linear-gradient(to bottom, $color, white);
+}
+
+.stacked-bar-graph-horizontal {
+  width: 100%;
+  height: 10rem;
+  color: #414042;
+
+  .scale {
+    display: flex;
+
+    .segment {
+      text-align: center;
+      border-right: solid 1px #adadad;
+      .pc {
+        text-align: center;
+      }
+    }
+    .segment:first-child {
+      border-left: solid 1px #adadad;
+    }
+  }
+
+  .bars {
+    height: 8rem;
+    display: flex;
+
+    .bar-1 {
+      @include vertical-grad($grad-male-rural);
+    }
+    .bar-2 {
+      @include vertical-grad($grad-male-urban);
+    }
+    .bar-3 {
+      @include vertical-grad($grad-female-rural);
+    }
+    .bar-4 {
+      @include vertical-grad($grad-female-urban);
+    }
+
+    .detail {
+      transform: translate(-50%, -50%) rotate(90deg);
+      position: relative;
+      left: 50%;
+      right: 50%;
+      top: 5em;
+      width: 8rem;
+    }
+  }
+}

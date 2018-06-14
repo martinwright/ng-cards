@@ -1,0 +1,101 @@
+$male-rural: #4285f4;
+$male-urban: #4285f4;
+$female-rural: #aa66cc;
+$female-urban: #aa66cc;
+
+@mixin vertical-grad($color) {
+  /*background: $color;*/
+  background: linear-gradient(to top, $color, lighten( $color, 20% ));
+}
+
+@mixin horizontal-grad($color) {
+  background: linear-gradient(to right, $color, white);
+}
+
+.card {
+  padding: 0.5em !important;
+  .image-conatiner {
+    padding: 0.5em !important;
+    img {
+      max-width: 50%;
+      border: 1px solid #c5c5c5;
+    }
+  }
+
+  .card-body {
+    padding: 0.5em !important;
+
+    .stacked-bar-graph-horizontal {
+      width: 100%;
+      color: #414042;
+      justify-content: space-around;
+
+      .scale {
+        display: flex;
+        justify-content: space-around;
+
+        .segment {
+          text-align: center;
+          /*border-right: solid 1px #adadad;*/
+          .pc {
+            text-align: center;
+            font-size: 70%;
+          }
+        }
+        .segment:first-child {
+          /*border-left: solid 1px #adadad;*/
+        }
+      }
+
+      .bars {
+        height: 8rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+
+        .bar {
+          width: 2.5em;
+        }
+        .bar-1 {
+          @include vertical-grad($male-rural);
+        }
+        .bar-2 {
+          @include vertical-grad($male-urban);
+        }
+        .bar-3 {
+          @include vertical-grad($female-rural);
+        }
+        .bar-4 {
+          @include vertical-grad($female-urban);
+        }
+      }
+    }
+
+    .legend {
+      display: flex;
+      justify-content: space-around;
+
+      .male-urban {
+        background-color: #ff00ff;
+      }
+      .male-rural {
+        background-color: #00ffff;
+      }
+      .female-urban {
+        background-color: #0000ff;
+      }
+      .female-rural {
+        background-color: #000000;
+      }
+    }
+
+    .legendMF {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 0.4rem;
+    }
+
+  }
+}
+
+

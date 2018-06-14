@@ -1,0 +1,57 @@
+<div class="card">
+
+    <div class="image-conatiner text-center"><img class="img-fluid rounded"
+                                                  src="../assets/flags250/{{ getCountryCode(card.country) }}.png"
+                                                  alt="Card image cap"></div>
+    <div class="card-body">
+        <h4 class="card-title">{{ card.country }}</h4>
+        <h5 class="card-title">Population: <strong>{{ getTotalPopulation(card) }}</strong></h5>
+
+        <div class="stacked-bar-graph-horizontal">
+
+            <div class="bars">
+                <div [style.height]="getMaleUrbanPC(card, 2)" class="bar bar-1"></div>
+                <div [style.height]="getMaleRuralPC(card, 2)" class="bar bar-2"></div>
+                <div [style.height]="getFemaleUrbanPC(card, 2)" class="bar bar-3"></div>
+                <div [style.height]="getFemaleRuralPC(card, 2)" class="bar bar-4"></div>
+            </div>
+
+            <div class="scale">
+                <div class="segment">
+                    <div style="" class="pc">{{ getMaleUrbanPC(card) }}</div>
+                </div>
+                <div class="segment">
+                    <div style="" class="pc">{{ getMaleRuralPC(card) }}</div>
+                </div>
+                <div class="segment">
+                    <div style="" class="pc">{{ getFemaleUrbanPC(card) }}</div>
+                </div>
+                <div class="segment">
+                    <div style="" class="pc">{{ getFemaleRuralPC(card) }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div>
+                <div class="badge badge-primary  male-urban">Urban</div>
+            </div>
+            <div>
+                <div class="badge badge-primary  male-rural">Rural</div>
+            </div>
+
+            <div>
+                <div class="badge badge-secondary  female-urban">Urban</div>
+            </div>
+            <div>
+                <div class="badge badge-secondary female-rural">Rural</div>
+            </div>
+        </div>
+
+        <div class="legendMF">
+            <h6>Male</h6>
+            <h6>Female</h6>
+        </div>
+
+    </div>
+</div>
